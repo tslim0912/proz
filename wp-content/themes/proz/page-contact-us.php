@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * Template name: Page Template - Contact Us
+ * Template name: Page Template - 05 - Contact Us
  * 
  */
 

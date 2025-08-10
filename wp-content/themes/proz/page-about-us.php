@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * Template name: Page Template - About Us
+ * Template name: Page Template - 02 - About Us
  * 
  */
 
