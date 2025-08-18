@@ -39,7 +39,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     font-style: normal;
 }
 :root {
-    --main-font: 'Century Gothic';
+    --main-font: 'Century Gothic', sans-serif;
     --color-main: #00529E;
     --color-sub: #FAAD17;
     --color-black: #000000;
@@ -74,6 +74,18 @@ html, body {
     line-height: 32px;
     font-weight: var(--fw-400);
 }
+h1, h2, h3, h4, h5, h6, p, a, li, input, textarea, select, label {
+    margin-bottom: 0;
+}
+.elementor-element > *, h1 > span, h > span, h > span, h > span, h > span, h > span, p > span, a > span, button > span, li > span, p a {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+}
+h1, h2, h3, h4, h5, h6 {}
+p, a, li, input, textarea, select, label {}
 h1, .h1, .text-size-1 {
     font-size: 51px;
     line-height: 51px;
