@@ -84,8 +84,12 @@ h1, h2, h3, h4, h5, h6, p, a, li, input, textarea, select, label {
     font-family: inherit;
     font-weight: inherit;
 }
-h1, h2, h3, h4, h5, h6 {}
-p, a, li, input, textarea, select, label {}
+h1, h2, h3, h4, h5, h6 {
+    
+}
+p, a, li, input, textarea, select, label {
+
+}
 h1, .h1, .text-size-1 {
     font-size: 51px;
     line-height: 51px;
