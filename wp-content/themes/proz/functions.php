@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.'.time() );
 }
 
 /**
@@ -138,16 +138,39 @@ add_action( 'widgets_init', 'proz_widgets_init' );
  * Enqueue scripts and styles.
  */
 function proz_scripts() {
+    wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', [], null);
 	wp_enqueue_style( 'proz-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'proz-style', 'rtl', 'replace' );
 
+	wp_enqueue_script('jQuery', 'https://code.jquery.com/jquery-3.7.1.min.js', [], null, true);
+	wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], null, true);
 	wp_enqueue_script( 'proz-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+
+    wp_enqueue_style( 'media-query', get_template_directory_uri() . '/css/media.css', array(), _S_VERSION, 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'proz_scripts' );
+
+function add_attributes_to_bootstrap($html, $handle) {
+    if ('bootstrap-css' === $handle) {
+        $integrity = 'sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC';
+        $html = str_replace('/>', ' integrity="' . $integrity . '" crossorigin="anonymous" />', $html);
+    }
+    return $html;
+}
+add_filter('style_loader_tag', 'add_attributes_to_bootstrap', 10, 2);
+function add_crossorigin_to_jquery($tag, $handle) {
+    if ('jQuery' === $handle) {
+        $integrity = 'sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=';
+        return str_replace(' src', ' integrity="' . $integrity . '" crossorigin="anonymous" src', $tag);
+    }
+    else if ('bootstrap-js' === $handle) {
+        $integrity = 'sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM';
+        return str_replace(' src', ' integrity="' . $integrity . '" crossorigin="anonymous" src', $tag);
+    }
+    return $tag;
+}
+add_filter('script_loader_tag', 'add_crossorigin_to_jquery', 10, 2);
 
 /**
  * Implement the Custom Header feature.
@@ -175,4 +198,39 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+function proz_cta_default_icon() {
+    return '<?xml version="1.0" encoding="UTF-8"?>
+        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.78 24.78">
+        <g id="TEXT">
+            <g>
+            <path d="M12.39,24.78C5.56,24.78,0,19.22,0,12.39S5.56,0,12.39,0s12.39,5.56,12.39,12.39-5.56,12.39-12.39,12.39ZM12.39,.45C5.8,.45,.45,5.8,.45,12.39s5.36,11.94,11.94,11.94,11.94-5.36,11.94-11.94S18.97,.45,12.39,.45Z"/>
+            <polygon points="9.04 17.5 8.88 17.21 17.39 12.39 8.88 7.56 9.04 7.28 18.05 12.39 9.04 17.5"/>
+            </g>
+        </g>
+    </svg>';
+}
+function get_template_media_url($filename) {
+    return get_template_directory_uri() . '/images/';
+}
+function proz_default_cta($label, $url, $target) {
+    if( empty($url) ) {
+        return 'Missing URL';
+    }
+    else {
+        $b = $url;
+        if( empty($label) ) {
+            $a = 'View More';
+        }
+        else {
+            $a = $label;
+        }
+        if( $target == '_self' ||  $target == '_blank' ) {
+            $c = ' target="'.$target.'"';
+        }
+        else {
+            $c = '';
+        }
 
+        return '<a href="'.$b.'"'.$c.' class="btn btn-cta"><span>'.$a.'</span> '.proz_cta_default_icon().'</a>';
+    }
+}

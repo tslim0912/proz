@@ -146,3 +146,151 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
 .btn.btn-sub {
     background-color: var(--color-sub);
 }
+.btn.btn-cta {
+    color: var(--color-black);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: transparent;
+}
+.btn.btn-cta svg {
+    width: 24px;
+    height: 24px;
+}
+.grid {
+    display: grid;
+    gap: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1680px) {
+    .ps-xxxl-1, .px-xxxl-1 {
+        padding-left: 0.25rem!important;
+    }
+    .pe-xxxl-1, .px-xxxl-1 {
+        padding-right: 0.25rem!important;
+    }
+    .pt-xxxl-1, .py-xxxl-1 {
+        padding-top: 0.25rem!important;
+    }
+    .pb-xxxl-1, .py-xxxl-1 {
+        padding-bottom: 0.25rem!important;
+    }
+    .ps-xxxl-2, .px-xxxl-2 {
+        padding-left: 0.5rem!important;
+    }
+    .pe-xxxl-2, .px-xxxl-2 {
+        padding-right: 0.5rem!important;
+    }
+    .pt-xxxl-2, .py-xxxl-2 {
+        padding-top: 0.5rem!important;
+    }
+    .pb-xxxl-2, .py-xxxl-2 {
+        padding-bottom: 0.5rem!important;
+    }
+    .ps-xxxl-3, .px-xxxl-3 {
+        padding-left: 1rem!important;
+    }
+    .pe-xxxl-3, .px-xxxl-3 {
+        padding-right: 1rem!important;
+    }
+    .pt-xxxl-3, .py-xxxl-3 {
+        padding-top: 1rem!important;
+    }
+    .pb-xxxl-3, .py-xxxl-3 {
+        padding-bottom: 1rem!important;
+    }
+    .ps-xxxl-4, .px-xxxl-4 {
+        padding-left: 1.5rem!important;
+    }
+    .pe-xxxl-4, .px-xxxl-4 {
+        padding-right: 1.5rem!important;
+    }
+    .pt-xxxl-4, .py-xxxl-4 {
+        padding-top: 1.5rem!important;
+    }
+    .pb-xxxl-4, .py-xxxl-4 {
+        padding-bottom: 1.5rem!important;
+    }
+    .ps-xxxl-5, .px-xxxl-5 {
+        padding-left: 3rem!important;
+    }
+    .pe-xxxl-5, .px-xxxl-5 {
+        padding-right: 3rem!important;
+    }
+    .pt-xxxl-5, .py-xxxl-5 {
+        padding-top: 3rem!important;
+    }
+    .pb-xxxl-5, .py-xxxl-5 {
+        padding-bottom: 3rem!important;
+    }
+    .ms-xxxl-, .mx-xxxl- {
+        margin-left: 0.25rem!important;
+    }
+    .me-xxxl-, .mx-xxxl- {
+        margin-right: 0.25rem!important;
+    }
+    .mt-xxxl-, .my-xxxl- {
+        margin-top: 0.25rem!important;
+    }
+    .mb-xxxl-, .my-xxxl- {
+        margin-bottom: 0.25rem!important;
+    }
+    .col-xxxl-1 {
+        flex: 0 0 auto;
+        width: 8.33333333%;
+    }
+    .col-xxxl-2 {
+        flex: 0 0 auto;
+        width: 16.66666667%;
+    }
+    .col-xxxl-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+    .col-xxxl-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+    .col-xxxl-5 {
+        flex: 0 0 auto;
+        width: 41.66666667%;
+    }
+    .col-xxxl-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    .col-xxxl-7 {
+        flex: 0 0 auto;
+        width: 58.33333333%;
+    }
+    .col-xxxl-8 {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
+    .col-xxxl-9 {
+        flex: 0 0 auto;
+        width: 75%;
+    }
+    .col-xxxl-10 {
+        flex: 0 0 auto;
+        width: 83.33333333%;
+    }
+    .col-xxxl-11 {
+        flex: 0 0 auto;
+        width: 91.66666667%;
+    }
+    .col-xxxl-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
