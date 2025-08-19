@@ -173,12 +173,35 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
     padding: 0;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 16px;
     background-color: transparent;
 }
 .btn.btn-cta svg {
     width: 24px;
     height: 24px;
+}
+.proz-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 24px;
+    transition: all 0.3s ease;
+}
+.proz-icon::before {
+    content: '';
+    display: block;
+    position: absolute;
+}
+.proz-icon.icon-chevron-right-circle::before {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    margin-left: -2px;
 }
 .grid {
     display: grid;

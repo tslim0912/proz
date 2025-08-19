@@ -19,6 +19,11 @@
         font-size: 20px;
         line-height: 28px;
     }
+    .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 15px;
+    }
 }
 @media (min-width: 768px) {
     .section-title {
@@ -74,19 +79,23 @@
     #masthead .eael-simple-menu .lang-item {
         display: none;
     }
+    .section-title h2 {
+        font-size: 34px;
+        line-height: 34px;
+    }
     .proz-pll .lang-item a {
         font-size: 16px;
         line-height: 24px;
     }
     .section-title {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
     .page-content, .listing {
-        padding: 5.729167vw 0;
+        padding: 90px 0;
     }
     .grid-news-events .post-date, .grid-news-events .post-title {
-        font-size: 1.5625vw;
-        line-height: 1.82292vw;
+        font-size: 20px;
+        line-height: 24px;
     }
     .grid-news-events .post-thumbnail {
         height: 17.36111vw;
@@ -96,5 +105,37 @@
     }
     .grid-news-events .grid-body {
         padding: 3.125vw 2.08333vw;
+    }
+    .grid-news-events .btn-cta {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+@media (min-width: 1660px) {
+    .page-content, .listing {
+        padding: 110px 0;
+    }
+    .section-title {
+        margin-bottom: 70px;
+    }
+    .section-title h2 {
+        font-size: 51px;
+        line-height: 51px;
+    }
+    .grid-news-events .post-date, .grid-news-events .post-title {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .grid-news-events .btn-cta {
+        font-size: 21px;
+        line-height: 28px;
+    }
+    .proz-icon {
+        width: 28px;
+        height: 28px;
+    }
+    .proz-icon::before {
+        width: 10px;
+        height: 10px;
     }
 }

@@ -17,8 +17,10 @@ echo '<div class="grid-item grid-item-'.$id.'" id="grid-item-'.$id.'">
             <div class="grid-thumbnail post-thumbnail">'.$thumbnail.'</div>
             <div class="grid-body">
                 <span class="d-inline-block post-date">'.$date.'</span>
-                <h3 class="post-title">'.$title.'</h3>
-                <a href="'.$thumbnail_link.'" class="btn btn-cta post-link fancybox" data-fancybox="grid-item-'.$id.'">VIEW MORE PHOTOS '.proz_cta_default_icon().'</a>';
+                <h3 class="post-title">'.$title.'</h3>';
+            if( !empty($thumbnail_link) ) {
+                echo '<a href="'.$thumbnail_link.'" class="btn btn-cta post-link fancybox" data-fancybox="grid-item-'.$id.'">VIEW MORE PHOTOS <div class="proz-icon icon-chevron-right-circle"></div></a>';
+            }
             if( !empty($gallery) ) {
                 foreach($gallery as $img) {
                     echo '<a href="'.$img['url'].'" class="d-none fancybox" data-fancybox="fancybox-item-'.$id.'">VIEW MORE PHOTOS</a>';
