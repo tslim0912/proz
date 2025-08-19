@@ -180,13 +180,15 @@ add_action('wp_enqueue_scripts', 'custom_enqueue_jquery_frontend', 20);
 
 function proz_scripts() {
     wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', [], null);
+    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], null);
 	wp_enqueue_style( 'proz-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'proz-style', 'rtl', 'replace' );
-	wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.min.css', array(), _S_VERSION, 'all' );
+	// wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.min.css', array(), _S_VERSION, 'all' );
 	wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION, 'all' );
 
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], null, true);
-	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], null, true);
+	// wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'proz-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
 
@@ -278,3 +280,57 @@ function proz_default_cta($label, $url, $target) {
         return '<a href="'.$b.'"'.$c.' class="btn btn-cta"><span>'.$a.'</span> '.proz_cta_default_icon().'</a>';
     }
 }
+
+function proz_sirim_reports() {
+	$args = array(
+		'post_type'		=> 'report',
+		'post_status'	=> 'publish',
+		'order'			=> 'asc',
+		'orderby'		=> 'date',
+		'posts_per_page' => -1,
+	);
+	$reports = new WP_Query($args);
+	ob_start();
+	echo '<div class="proz-sirim-reports">';
+	if( $reports->have_posts() ) {
+		echo '<div class="swiper sirim-reports" id="sirim-reports">';
+			echo '<div class="swiper-wrapper">';
+			while( $reports->have_posts() ) {
+				$reports->the_post();
+				$post_id = get_the_ID();
+				$title = get_the_title();
+				$slug = get_post_field( 'post_name', $post_id );
+				$thumbnail = get_the_post_thumbnail_url();
+				$pdf = get_field('pdf');
+				$others = '';
+				if( $pdf ) {
+					$i = 2;
+					$others .= '<div class="sirim-others d-none">';
+					foreach($pdf as $img) {
+						$index = str_pad($i, 2, '0', STR_PAD_LEFT);
+						$page = $title.' - Page '.$index;
+						$others .= '<a href="'.$img['url'].'" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="'.$slug.'" data-elementor-lightbox-title="'.$page.'"><img src="'.$img['url'].'" class="img-fluid w-100"/>'.$title.'</a>';
+						$i++;
+					}
+					$others .= '</div>';
+				}
+				echo '
+				<div class="swiper-slide sirim-item sirim-item-'.$slug.'">
+					<div class="sirim-item-inner">
+						<div class="sirim-thumbnail"><a href="'.$thumbnail.'" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="'.$slug.'" data-elementor-lightbox-title="'.$title.' - Page 01"><img src="'.$thumbnail.'" class="img-fluid w-100"/></a></div>'.$others.'
+					</div>
+				</div>
+				';
+			}
+			WP_RESET_POSTDATA();
+			echo '</div>';
+			echo '<div class="sirim-report-pagination"></div>';
+		echo '</div>';
+	}
+	else {
+		echo '<div class="alert alert-warning" role="alert">There is no Report found!</div>';
+	}
+	echo '</div>';
+	return ob_get_clean();
+}
+add_shortcode('proz_sirim_reports', 'proz_sirim_reports');

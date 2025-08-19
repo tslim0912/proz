@@ -24,6 +24,9 @@
         flex-direction: row-reverse;
         gap: 15px;
     }
+    #sirim-reports .swiper-slide {
+        width: 280px;
+    }
 }
 @media (min-width: 768px) {
     .section-title {
