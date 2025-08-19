@@ -352,7 +352,7 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
     height: auto;
 }
 #sirim-reports .sirim-item-inner {
-    padding: 0 12px;
+    padding: 0;
     height: 100%;
     display: flex; /* If content needs further flex alignment */
     flex-direction: column; /* If content needs vertical distribution */
@@ -367,9 +367,14 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
     width: 14px;
     height: 14px;
 }
-#sirim-reports .swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
+#sirim-reports .swiper-pagination-bullet.swiper-pagination-bullet-active, #sirim-reports .swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
     background-color: var(--color-sub);
+}
+#sirim-reports .swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
     opacity: 0.5;
+}
+.elementor-image-box-description {
+    width: max-content;
 }
 @media (min-width: 768px) {
     .ps-md-proz, .px-md-proz {

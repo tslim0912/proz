@@ -334,3 +334,11 @@ function proz_sirim_reports() {
 	return ob_get_clean();
 }
 add_shortcode('proz_sirim_reports', 'proz_sirim_reports');
+
+function proz_retailer_locator() {
+
+	ob_start();
+	echo '<div class="wrapper p-4"><div class="alert alert-warning mb-0" role="alert">Coming Soon!</div></div>';
+	return ob_get_clean();
+}
+add_shortcode('proz_retailer_locator', 'proz_retailer_locator');

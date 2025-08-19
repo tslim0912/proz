@@ -8,9 +8,9 @@ $(document).ready(function () {
         $sirimReport = new Swiper('#sirim-reports', {
             slidesPerView: 4,
             loop: false,
-            spaceBetween: 0,
-            slidesOffsetBefore: 13,
-            slidesOffsetAfter: 13,
+            spaceBetween: 24,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 0,
             autoplay: {
                 delay: 8000,
                 disableOnInteraction: false,
@@ -22,11 +22,11 @@ $(document).ready(function () {
             breakpoints: {
                 0: {
                     slidesPerView: "auto",
-                    spaceBetween: 25,
+                    spaceBetween: 24,
                 },
                 768: {
                     slidesPerView: 4,
-                    spaceBetween: 0,
+                    spaceBetween: 24,
                 }
             }
         });
