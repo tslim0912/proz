@@ -1,4 +1,25 @@
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+    .logged-in.admin-bar #masthead .eael-nav-menu-wrapper {
+        top: 87px;
+    }
+    .section-title {
+        margin-bottom: 50px;
+    }
+    h2, .section-title h2 {
+        font-size: 38px;
+        line-height: 45px;
+    }
+    .page-content, .listing {
+        padding: 16.9082vw 0;
+    }
+    .grid-news-events {
+        gap: 50px;
+    }
+    .grid-news-events .post-date, .grid-news-events .post-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
 @media (min-width: 768px) {
     .section-title {
         margin-bottom: 60px;
@@ -10,15 +31,70 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+    .grid-news-events .grid-body {
+        padding: 30px 25px;
+    }
+    .grid-news-events .btn-cta {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
 @media (min-width: 992px) {}
-@media (min-width: 768px) and (max-width: 1199px) {}
-@media (max-width: 1199px) {}
+@media (min-width: 768px) and (max-width: 1199px) {
+    .logged-in.admin-bar #masthead .eael-nav-menu-wrapper {
+        top: 90px;
+    }
+    .page-content, .listing {
+        padding: 8.7891vw 0;
+    }
+    .grid-news-events .post-date, .grid-news-events .post-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .grid-news-events .post-thumbnail {
+        height: 170px;
+    }
+    .grid-news-events .post-title {
+        height: 5lh;
+    }
+}
+@media (max-width: 1199px) {
+    #masthead .eael-simple-menu-toggle-text {
+        display: none;
+    }
+    #masthead .eael-nav-menu-wrapper {        
+        position: fixed!important;
+        left: 0;
+        top: 42px;
+        width: 100%;
+    }
+}
 @media (min-width: 1200px) {
+    #masthead .eael-simple-menu .lang-item {
+        display: none;
+    }
+    .proz-pll .lang-item a {
+        font-size: 16px;
+        line-height: 24px;
+    }
     .section-title {
         margin-bottom: 80px;
     }
     .page-content, .listing {
-        padding: 80px 0;
+        padding: 5.729167vw 0;
+    }
+    .grid-news-events .post-date, .grid-news-events .post-title {
+        font-size: 1.5625vw;
+        line-height: 1.82292vw;
+    }
+    .grid-news-events .post-thumbnail {
+        height: 17.36111vw;
+    }
+    .grid-news-events .post-title {
+        height: 7.29167vw;
+    }
+    .grid-news-events .grid-body {
+        padding: 3.125vw 2.08333vw;
     }
 }

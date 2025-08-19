@@ -45,6 +45,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     --color-black: #000000;
     --color-white: #FFFFFF;
     --color-grey: #E5E5E5;
+    --default-bg: #E6E7E8;
     --fw-100: 100;
     --fw-200: 200;
     --fw-300: 300;
@@ -68,6 +69,7 @@ html, body {
     line-height: 30px;
     font-weight: 400;
     font-family: var(--main-font), sans-serif;
+    background-color: var(--default-bg);
 }
 .intro-banner {
     font-size: 21px;
@@ -77,7 +79,7 @@ html, body {
 h1, h2, h3, h4, h5, h6, p, a, li, input, textarea, select, label {
     margin-bottom: 0;
 }
-.elementor-element > *, h1 > span, h > span, h > span, h > span, h > span, h > span, p > span, a > span, button > span, li > span, p a {
+.elementor-element > *, .elementor-inline-editing > *, h1 > span, h > span, h > span, h > span, h > span, h > span, p > span, a > span, button > span, li > span, p a {
     font-size: inherit;
     line-height: inherit;
     color: inherit;
@@ -85,10 +87,10 @@ h1, h2, h3, h4, h5, h6, p, a, li, input, textarea, select, label {
     font-weight: inherit;
 }
 h1, h2, h3, h4, h5, h6 {
-    
+    font-weight: var(--fw-700);
 }
 p, a, li, input, textarea, select, label {
-
+    font-weight: var(--fw-400);
 }
 h1, .h1, .text-size-1 {
     font-size: 51px;
@@ -122,6 +124,9 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
 #masthead .navbar-brand {
     width: 230px;
 }
+.elementor-lightbox.dialog-widget {
+    display: none!important;
+}
 .icon-list {
     display: flex;
     justify-content: flex-start;
@@ -133,8 +138,9 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
     width: auto;
     height: 32px;
 }
-.input-control, .input-control:hover, .input-control:focus, .input-control:visited, .input-control:active, input, input:hover, input:focus, input:visited, input:active, input.input-control, input.input-control:hover, input.input-control:focus, input.input-control:visited, input.input-control:active, textarea, textarea:hover, textarea:focus, textarea:visited, textarea:active, textarea.input-control, textarea.input-control:hover, textarea.input-control:focus, textarea.input-control:visited, textarea.input-control:active, select, select:hover, select:focus, select:visited, select:active, select.input-control, select.input-control:hover, select.input-control:focus, select.input-control:visited, select.input-control:active {
+.btn, .btn:hover, .btn:focus, a.btn, a.btn:hover, a.btn:focus, button.btn, button.btn:hover, button.btn:focus, .input-control, .input-control:hover, .input-control:focus, .input-control:visited, .input-control:active, input, input:hover, input:focus, input:visited, input:active, input.input-control, input.input-control:hover, input.input-control:focus, input.input-control:visited, input.input-control:active, textarea, textarea:hover, textarea:focus, textarea:visited, textarea:active, textarea.input-control, textarea.input-control:hover, textarea.input-control:focus, textarea.input-control:visited, textarea.input-control:active, select, select:hover, select:focus, select:visited, select:active, select.input-control, select.input-control:hover, select.input-control:focus, select.input-control:visited, select.input-control:active {
     outline: none;
+    box-shadow: none;
 }
 .input-control, input, input.input-control, textarea, textarea.input-control, select, select.input-control {
     display: block;
@@ -182,13 +188,173 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
 
 
 
-
-
-
-
-
-
+#newsletter-form .form-col > p {
+    display: flex;
+    width: 100%;
+}
+#newsletter-form input.input-control::placeholder {
+    text-align: center;
+    font-size: 14px;
+    line-height: 14px;
+}
+#newsletter-form .form-col > p .wpcf7-form-control-wrap {
+    width: 70%;
+}
+#newsletter-form .form-col > p .wpcf7-form-control-wrap input {
+    padding-right: 10%;
+}
+#newsletter-form .form-col .btn-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    border-radius: 25px;
+    padding: 0 20px;
+    height: 100%;
+    z-index: 1;
+}
+.section-title h1, .section-title h2, .section-title h3, .section-title h4, .section-title h5, .section-title h6 {
+    text-transform: uppercase;
+}
+.grid-news-events .grid-item-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.grid-news-events .post-date {
+    color: var(--color-main);
+}
+.grid-news-events .post-thumbnail {
+    height: 230px;
+    background-color: #bfbfbf;
+}
+.grid-news-events .post-thumbnail a, .grid-news-events .post-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.grid-news-events .post-thumbnail img {
+    object-fit: cover;
+    object-position: center center;
+}
+.grid-news-events .grid-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--color-white);
+    flex: 1;
+}
+.grid-news-events .grid-body .btn-cta {
+    margin-bottom: 30px;
+}
+.grid-news-events .post-title {
+    height: 4lh;
+}
+.grid-pagination {
+    margin-top: 25px;
+}
+.grid-pagination .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.grid-pagination .nav-links .page-numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 20px;
+    border: 1px solid var(--color-main);
+    background-color: transparent;
+    color: var(--color-main);
+}
+.grid-pagination .nav-links .page-numbers.current {
+    background-color: var(--color-main);
+    color: var(--color-white);
+}
+.grid-pagination .nav-links a.page-numbers:not(:hover) {
+    text-decoration: none;
+}
+.proz-pll {
+    list-style: none;
+    padding: 0;
+}
+.proz-pll .lang-item a {
+    color: var(--color-white);
+}
+.eael-contact-form-title.eael-contact-form-7-title {
+    margin-bottom: 50px;
+}
+.form-col {
+    margin-bottom: 20px;
+}
+.form-col p {
+    width: 100%;
+}
+.form-col .wpcf7-validates-as-phonetext {
+    padding-left: 97px!important;
+}
+.intl-tel-input.separate-dial-code .selected-dial-code {
+    font-size: 16px;
+    line-height: 24px;
+}
+.wpcf7-form-control.wpcf7-acceptance .wpcf7-list-item {
+    margin-left: 30px;
+}
+.wpcf7-form-control.wpcf7-acceptance input {
+    position: absolute;
+    top: 4px;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+}
+.wpcf7-form-control.wpcf7-acceptance .wpcf7-list-item-label a {
+    color: var(--color-sub);
+    text-decoration: underline;
+}
+@media (min-width: 768px) {
+    .ps-md-proz, .px-md-proz {
+        padding-left: 3.64583vw!important;
+    }
+    .pe-md-proz, .px-md-proz {
+        padding-right: 3.64583vw!important;
+    }
+}
+@media (min-width: 992px) {
+    .ps-lg-proz, .px-lg-proz {
+        padding-left: 3.64583vw!important;
+    }
+    .pe-lg-proz, .px-lg-proz {
+        padding-right: 3.64583vw!important;
+    }
+}
+@media (min-width: 1200px) {
+    .ps-xl-proz, .px-xl-proz {
+        padding-left: 3.64583vw!important;
+    }
+    .pe-xl-proz, .px-xl-proz {
+        padding-right: 3.64583vw!important;
+    }
+}
+@media (min-width: 1400px) {
+    .ps-xxl-proz, .px-xxl-proz {
+        padding-left: 3.64583vw!important;
+    }
+    .pe-xxl-proz, .px-xxl-proz {
+        padding-right: 3.64583vw!important;
+    }
+}
 @media (min-width: 1680px) {
+    .ps-xxxl-proz, .px-xxxl-proz {
+        padding-left: 3.64583vw!important;
+    }
+    .pe-xxxl-proz, .px-xxxl-proz {
+        padding-right: 3.64583vw!important;
+    }
     .ps-xxxl-1, .px-xxxl-1 {
         padding-left: 0.25rem!important;
     }
