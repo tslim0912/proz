@@ -13,7 +13,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/proz-single-template', 'products' );
+			get_template_part( 'template-parts/proz-single-template', 'product' );
 
 		endwhile; // End of the loop.
 		?>

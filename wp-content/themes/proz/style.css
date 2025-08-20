@@ -376,6 +376,31 @@ h6, .h6, .text-size-6, .input-control, input, input.input-control, textarea, tex
 .elementor-image-box-description {
     width: max-content;
 }
+.single-product {}
+.single-product .product-inner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 25px;
+}
+.single-product .product-thumbnail {
+    height: 500px;
+}
+.single-product .prod-col {
+    border: 1px solid #000;
+    min-height: 300px;
+    width: 33%;
+}
+.single-product .prod-col:nth-child(1) {
+    width: 66%;
+}
+.single-product .prod-col:nth-child(2) {
+    
+}
+.single-product .prod-col-1 {}
+.single-product .prod-col-2 {}
+.single-product .prod-col-3 {}
+.single-product .prod-col-4 {}
 @media (min-width: 768px) {
     .ps-md-proz, .px-md-proz {
         padding-left: 3.64583vw!important;
