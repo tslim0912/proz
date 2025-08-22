@@ -16,10 +16,19 @@ get_header();
 		    the_content();
 
 		endwhile; // End of the loop.
-
+        ?>
         
-        get_template_part( 'template-parts/proz-page-template', 'products' );
-		?>
+        <section class="">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 px-4">
+                    <?php
+                    get_template_part( 'template-parts/proz-page-template', 'products' );
+                    ?>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 	</main><!-- #main -->
 <?php

@@ -1,0 +1,48 @@
+.prod-meta ul {
+    list-style: none;
+    padding: 0;
+}
+.meta-certs ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 50px;
+}
+.divider {
+    display: inline-block;
+    margin: 20px 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-black);
+}
+.meta-colours ul {
+    counter-reset: colours;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+.meta-colours ul > li {
+    counter-increment: colours;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.meta-colours ul > li > span {
+    font-size: 16px;
+    line-height: 16px;
+}
+.colour-palette {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 47px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    gap: 3px;
+}
+.meta-colours .colour-label {
+    font-weight: 900;
+}
+.meta-colours .colour-label::before {
+    content: counter(colours) ". ";
+}
+

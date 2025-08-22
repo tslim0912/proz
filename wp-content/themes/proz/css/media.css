@@ -38,6 +38,18 @@
     .grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    .grid-products {
+        gap: 30px;
+    }
+    .single-product .product-thumbnail {
+        padding-right: 30px;
+    }
+    .meta-certs ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .meta-colours ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 @media (max-width: 991px) {
     .grid-news-events .grid-body {
@@ -65,6 +77,9 @@
     }
     .grid-news-events .post-title {
         height: 5lh;
+    }
+    .single-product .prod-col {
+        max-width: 50%;
     }
 }
 @media (max-width: 1199px) {
@@ -113,6 +128,28 @@
         font-size: 14px;
         line-height: 18px;
     }
+    .grid-products {
+        padding: 70px 0;
+        gap: 30px;
+    }
+    .grid-products .grid-title .text-sm, .grid-products .grid-title .text-sm-bold {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .grid-products .grid-title .text-lg, .grid-products .grid-title .text-lg-bold {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .grid-products .grid-title img.title-z {
+        height: 28px;
+        margin-top: 2px;
+    }
+    .single-product .prod-col {
+        max-width: 33%;
+    }
+    .single-product .product-thumbnail {
+        max-width: 66%;
+    }
 }
 @media (min-width: 1660px) {
     .page-content, .listing {
@@ -140,5 +177,34 @@
     .proz-icon::before {
         width: 10px;
         height: 10px;
+    }
+    .grid-products {
+        padding: 90px 0;
+        gap: 70px;
+    }
+    .grid-products .grid-title h2 {
+        font-size: 34px;
+        line-height: 35px;
+    }
+    .grid-products .grid-title img {
+        height: 26px
+    }
+    .grid-products .grid-title .text-sm, .grid-products .grid-title .text-sm-bold {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .grid-products .grid-title .text-lg, .grid-products .grid-title .text-lg-bold {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .grid-products .grid-title img.title-z {
+        height: 30px;
+        margin-top: 3px;
+    }
+    .single-product .product-inner {
+        gap: 50px 0;
+    }
+    .single-product .product-thumbnail {
+        padding-right: 50px; 
     }
 }

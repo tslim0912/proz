@@ -19,11 +19,15 @@ echo '<div class="grid-item grid-item-'.$id.'" id="grid-item-'.$id.'">
                 <span class="d-inline-block post-date">'.$date.'</span>
                 <h3 class="post-title">'.$title.'</h3>';
             if( !empty($thumbnail_link) ) {
-                echo '<a href="'.$thumbnail_link.'" class="btn btn-cta post-link" data-fancybox="grid-item-'.$id.'">VIEW MORE PHOTOS <div class="proz-icon icon-chevron-right-circle"></div></a>';
+                echo '<a href="'.$thumbnail_link.'" class="btn btn-cta post-link" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="fancybox-item-'.$id.'" data-elementor-lightbox-title="'. $title .' - Cover">VIEW MORE PHOTOS <div class="proz-icon icon-chevron-right-circle"></div></a>';
             }
             if( !empty($gallery) ) {
+                $j = 1;
                 foreach($gallery as $img) {
-                    echo '<a href="'.$img['url'].'" class="d-none" data-fancybox="fancybox-item-'.$id.'">VIEW MORE PHOTOS</a>';
+                    $index = str_pad($j, 2, '0', STR_PAD_LEFT);
+                    $tagging = $title . ' - Image ' . $index;
+                    echo '<a href="'.$img['url'].'" class="d-none" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="fancybox-item-'.$id.'" data-elementor-lightbox-title="'.$tagging.'">VIEW MORE PHOTOS</a>';
+                    $j++;
                 }
             }
     echo '</div>
